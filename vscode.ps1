@@ -1,33 +1,15 @@
-# Install VS Code and extensions
-
-Write-Host "Installing Visual Studio Code..." -ForegroundColor Green
-
-# Move to Downloads to avoid permission issues
-Set-Location -Path "$HOME\Downloads"
-
-if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
-    Write-Host "winget is not installed or not available." -ForegroundColor Red
-    exit 1
-}
-
+﻿$OutputEncoding = [Console]::OutputEncoding = [Text.UTF8Encoding]::new()
+chcp 65001 | Out-Null
+function Info($m){ Write-Host "[INFO] $m" -ForegroundColor Cyan }
+function Done($m){ Write-Host "[DONE] $m" -ForegroundColor Green }
+function Warn($m){ Write-Host "[WARN] $m" -ForegroundColor Yellow }
+Set-Location "$HOME\Downloads"
+Info "Installing VS Code / 正在安装 VS Code"
 winget install -e --id Microsoft.VisualStudioCode --accept-package-agreements --accept-source-agreements
-
-Write-Host "Waiting for VS Code command to become available..." -ForegroundColor Cyan
-Start-Sleep -Seconds 5
-
-$codeCommand = Get-Command code -ErrorAction SilentlyContinue
-
-if ($codeCommand) {
-    Write-Host "Installing VS Code extensions..." -ForegroundColor Cyan
-
-    code --install-extension ms-python.python
-    code --install-extension ms-vscode.powershell
-    code --install-extension esbenp.prettier-vscode
-    code --install-extension ritwickdey.LiveServer
-
-    Write-Host "VS Code extensions installed." -ForegroundColor Green
-} else {
-    Write-Host "VS Code command 'code' was not found. Open VS Code once, then run this script again." -ForegroundColor Yellow
-}
-
-Write-Host "VS Code setup completed." -ForegroundColor Green
+Info "Installing extensions / 正在安装扩展"
+$code = Get-Command code -ErrorAction SilentlyContinue
+if (-not $code) { Warn "code command not found. Open VS Code once, then run again. / 未找到 code 命令，请先打开一次 VS Code 后重试。"; Pause; exit 0 }
+$exts = @("ms-python.python","ms-vscode.powershell","esbenp.prettier-vscode","dbaeumer.vscode-eslint","eamodio.gitlens","bradlc.vscode-tailwindcss","ritwickdey.LiveServer","MS-CEINTL.vscode-language-pack-zh-hans")
+foreach ($e in $exts) { Info "Installing $e"; code --install-extension $e }
+Done "VS Code setup completed / VS Code 配置完成"
+Pause

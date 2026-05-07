@@ -1,44 +1,22 @@
-# Set bundled macOS Sequoia Sunrise image as Windows wallpaper, using Fill mode
-
-Write-Host "Setting up bundled wallpaper..." -ForegroundColor Green
-
-$repoWallpaperUrl = "https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/assets/15-Sequoia-Sunrise.png"
-$downloadDir = Join-Path $env:USERPROFILE "Downloads"
-$wallpaperPath = Join-Path $downloadDir "15-Sequoia-Sunrise.png"
-
-if (-not (Test-Path $downloadDir)) {
-    New-Item -ItemType Directory -Path $downloadDir | Out-Null
-}
-
-# If the image is already packaged locally beside this script, use it first.
-$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$localWallpaperPath = Join-Path $scriptDir "assets\15-Sequoia-Sunrise.png"
-
-if (Test-Path $localWallpaperPath) {
-    Write-Host "Using local bundled wallpaper image..." -ForegroundColor Cyan
-    Copy-Item -Path $localWallpaperPath -Destination $wallpaperPath -Force
-} else {
-    Write-Host "Downloading wallpaper from your GitHub repository..." -ForegroundColor Cyan
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    Invoke-WebRequest -UseBasicParsing -Uri $repoWallpaperUrl -OutFile $wallpaperPath
-}
-
-Write-Host "Setting wallpaper to Fill mode..." -ForegroundColor Cyan
-
-Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name Wallpaper -Value $wallpaperPath
-Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name WallpaperStyle -Value "10"
-Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name TileWallpaper -Value "0"
-
+﻿$OutputEncoding = [Console]::OutputEncoding = [Text.UTF8Encoding]::new()
+chcp 65001 | Out-Null
+function Info($m){ Write-Host "[INFO] $m" -ForegroundColor Cyan }
+function Done($m){ Write-Host "[DONE] $m" -ForegroundColor Green }
+function Fail($m){ Write-Host "[ERROR] $m" -ForegroundColor Red }
+Set-Location "$HOME\Downloads"
+$targetDir = "$HOME\Pictures\Wallpapers"
+New-Item -ItemType Directory -Force -Path $targetDir | Out-Null
+$wallpaper = Join-Path $targetDir "15-Sequoia-Sunrise.png"
+$local = Join-Path $PSScriptRoot "assets\15-Sequoia-Sunrise.png"
+$url = "https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/assets/15-Sequoia-Sunrise.png"
+if (Test-Path $local) { Info "Using embedded wallpaper / 使用包内壁纸"; Copy-Item $local $wallpaper -Force } else { Info "Downloading wallpaper from your GitHub repo / 从你的 GitHub 仓库下载壁纸"; Invoke-WebRequest -UseBasicParsing -Uri $url -OutFile $wallpaper }
+if (-not (Test-Path $wallpaper)) { Fail "Wallpaper file not found / 未找到壁纸文件"; exit 1 }
+Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name WallpaperStyle -Value 10
+Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name TileWallpaper -Value 0
 Add-Type @"
-using System;
 using System.Runtime.InteropServices;
-public class Wallpaper {
-    [DllImport("user32.dll", SetLastError = true)]
-    public static extern bool SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
-}
+public class Wallpaper { [DllImport("user32.dll", SetLastError=true)] public static extern bool SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni); }
 "@
-
-[Wallpaper]::SystemParametersInfo(20, 0, $wallpaperPath, 3) | Out-Null
-
-Write-Host "Wallpaper setup completed." -ForegroundColor Green
-Write-Host "Wallpaper saved to: $wallpaperPath" -ForegroundColor Gray
+[Wallpaper]::SystemParametersInfo(20, 0, $wallpaper, 3) | Out-Null
+Done "Wallpaper set to Fill / 壁纸已设置为填充铺满"
+Pause

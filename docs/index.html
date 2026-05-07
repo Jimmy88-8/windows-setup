@@ -1,112 +1,108 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>Windows Setup</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Windows Quick Setup | Windows 快速配置</title>
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      max-width: 860px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #111;
-    }
-
-    h1 { margin-bottom: 8px; }
-    .subtitle { color: #555; margin-bottom: 32px; }
-
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 20px 0;
-      background: #fafafa;
-    }
-
-    pre {
-      background: #111;
-      color: #f5f5f5;
-      padding: 16px;
-      border-radius: 10px;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-
-    button {
-      padding: 10px 14px;
-      border: 0;
-      border-radius: 8px;
-      background: #0969da;
-      color: white;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    button:hover { background: #0756b3; }
-
-    .warning {
-      background: #fff8c5;
-      border: 1px solid #eac54f;
-      padding: 14px;
-      border-radius: 10px;
-      margin-top: 24px;
-    }
+    :root{--bg:#0f172a;--card:#111827;--muted:#94a3b8;--text:#f8fafc;--line:#1f2937;--blue:#3b82f6;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444;--code:#020617}
+    [data-theme="light"]{--bg:#f8fafc;--card:#fff;--muted:#64748b;--text:#0f172a;--line:#e5e7eb;--blue:#2563eb;--green:#16a34a;--yellow:#d97706;--red:#dc2626;--code:#f1f5f9}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei UI",sans-serif;line-height:1.6}.wrap{max-width:1180px;margin:auto;padding:28px 18px 60px}.hero{padding:34px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(135deg,rgba(59,130,246,.18),rgba(34,197,94,.08)),var(--card);box-shadow:0 20px 60px rgba(0,0,0,.18)}h1{font-size:clamp(32px,5vw,56px);line-height:1.05;margin:0 0 12px}.sub{font-size:18px;color:var(--muted);max-width:860px}.bar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{border:1px solid var(--line);background:var(--blue);color:white;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}.btn.secondary{background:transparent;color:var(--text)}.btn.ok{background:var(--green)}.btn.warn{background:var(--yellow);color:#111827}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:24px}.panel,.card{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:18px}.panel{grid-column:span 12}.side{grid-column:span 4}.main{grid-column:span 8}.toolbar{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:10px}.toolbar input,.toolbar select{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text)}.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}.cmd-card{border:1px solid var(--line);border-radius:14px;padding:16px;background:rgba(255,255,255,.02)}.cmd-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.cmd-title{font-weight:800;font-size:18px}.desc{color:var(--muted);font-size:14px;margin:6px 0 12px}.tags{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.tag{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 8px;color:var(--muted)}.risk-safe{color:var(--green)}.risk-caution{color:var(--yellow)}.risk-high{color:var(--red)}pre{margin:10px 0;background:var(--code);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:14px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-family:"Cascadia Code","JetBrains Mono",Consolas,monospace;font-size:13px}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.small{font-size:13px;color:var(--muted)}details{margin-top:8px;color:var(--muted)}summary{cursor:pointer;color:var(--text)}.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px}.pill{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:4px 9px;font-size:12px;color:var(--muted)}.quick ol{margin:8px 0 0 20px}.recent-item{border-bottom:1px solid var(--line);padding:8px 0}.empty{color:var(--muted);padding:20px;text-align:center;border:1px dashed var(--line);border-radius:12px}.footer{color:var(--muted);font-size:13px;margin-top:28px}@media(max-width:900px){.side,.main{grid-column:span 12}.cards{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}}
   </style>
 </head>
-<body>
-  <h1>Windows Setup</h1>
-  <p class="subtitle">Quick CMD commands for setting up a Windows computer.</p>
+<body data-theme="dark">
+  <div class="wrap">
+    <section class="hero">
+      <div class="pill">Personal Windows setup dashboard / 个人 Windows 初始化面板</div>
+      <h1>Windows Quick Setup<br>Windows 快速配置工具箱</h1>
+      <p class="sub">Open this page on any Windows computer, copy a command, paste it into CMD or PowerShell, and quickly install apps, configure tools, or run your personal setup scripts.<br>在任意 Windows 电脑上打开本页，复制命令到 CMD 或 PowerShell，即可快速安装软件、配置开发环境和运行个人脚本。</p>
+      <div class="bar">
+        <button class="btn" onclick="copyById('heroSetup', this)">Copy Full Setup / 复制完整配置命令</button>
+        <button class="btn secondary" onclick="toggleTheme()">Toggle Theme / 切换主题</button>
+        <a class="btn secondary" href="https://github.com/jimmy88-8/windows-setup" target="_blank" rel="noreferrer">GitHub Repo</a>
+      </div>
+      <pre id="heroSetup">chcp 65001 &gt;nul &amp;&amp; cd /d "%USERPROFILE%\Downloads" &amp;&amp; powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/setup.ps1' -OutFile 'setup.ps1'; notepad setup.ps1; &amp; powershell -NoProfile -ExecutionPolicy Bypass -File '.\setup.ps1'"</pre>
+    </section>
 
-  <div class="warning">
-    <strong>Safety note:</strong> These commands first switch to your Downloads folder to reduce permission issues. Review scripts before running them. Do not put passwords, API keys, tokens, or private files in this public repository.
+    <div class="grid">
+      <aside class="side">
+        <div class="panel quick">
+          <h2>Quick Start / 快速开始</h2>
+          <ol>
+            <li>Open CMD or PowerShell. / 打开 CMD 或 PowerShell。</li>
+            <li>Copy a command below. / 复制下方需要的命令。</li>
+            <li>Paste and run. / 粘贴并运行。</li>
+            <li>If blocked, try Run as administrator. / 如果失败，尝试管理员身份运行。</li>
+          </ol>
+        </div>
+        <div class="panel">
+          <h2>Presets / 预设方案</h2>
+          <div class="bar">
+            <button class="btn secondary" onclick="setPreset('all')">All / 全部</button>
+            <button class="btn secondary" onclick="setPreset('school')">School / 学校轻量</button>
+            <button class="btn secondary" onclick="setPreset('dev')">Dev / 开发</button>
+            <button class="btn secondary" onclick="setPreset('personal')">Personal / 个性化</button>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Recent Copies / 最近复制</h2>
+          <div id="recent"></div>
+        </div>
+        <div class="panel">
+          <h2>Safety / 安全提醒</h2>
+          <p class="small">This site only displays and copies commands. It does not execute anything in your browser.<br>本网站只展示和复制命令，不会在浏览器里直接执行命令。</p>
+          <p class="small">Do not publish passwords, tokens, SSH keys, API keys, or private configuration.<br>不要把密码、Token、SSH 私钥、API Key 或私人配置放进公开仓库。</p>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="panel">
+          <div class="section-title"><h2>Commands / 命令</h2><button class="btn secondary" onclick="copyVisible(this)">Copy Visible / 复制当前筛选结果</button></div>
+          <div class="toolbar">
+            <input id="q" placeholder="Search: sharex, vscode, git, wallpaper / 搜索命令" oninput="render()">
+            <select id="cat" onchange="render()"><option value="all">All categories / 全部分类</option></select>
+            <select id="shell" onchange="render()"><option value="all">All shells / 全部 Shell</option><option>CMD</option><option>PowerShell</option></select>
+            <select id="risk" onchange="render()"><option value="all">All risks / 全部风险</option><option value="safe">Safe / 安全</option><option value="caution">Caution / 注意</option><option value="high">High Risk / 高风险</option></select>
+          </div>
+        </div>
+        <div id="cards" class="cards"></div>
+      </main>
+    </div>
+    <div class="footer">Last updated / 最后更新：2026-05-07 · UTF-8 CMD friendly: commands start with <code>chcp 65001</code>.</div>
   </div>
 
-  <div class="card">
-    <h2>Install ShareX</h2>
-    <p>Download and run the ShareX installer script. Works in CMD.</p>
-    <pre id="sharex">cd /d &quot;%USERPROFILE%\Downloads&quot; &amp;&amp; powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/sharex.ps1' -OutFile 'sharex.ps1'; &amp; powershell -NoProfile -ExecutionPolicy Bypass -File '.\sharex.ps1'&quot;</pre>
-    <button onclick="copyCommand('sharex')">Copy command</button>
-  </div>
+<script>
+const base = 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/';
+const cmdPrefix = 'chcp 65001 >nul && cd /d "%USERPROFILE%\\Downloads" && ';
+const runPs = file => `${cmdPrefix}powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri '${base}${file}' -OutFile '${file}'; & powershell -NoProfile -ExecutionPolicy Bypass -File '.\\${file}'"`;
+const commands = [
+{id:'check-winget',category:'System Tools / 系统工具',title:'Check winget / 检查 winget',description:'Check whether Windows Package Manager is available. / 检查是否可以使用 winget。',shell:'CMD',command:'chcp 65001 >nul && winget --version',tags:['CMD','winget','check'],risk:'safe',admin:false,presets:['all','school','dev'],favorite:true,updatedAt:'2026-05-07',details:'If winget is missing, update App Installer from Microsoft Store. / 如果没有 winget，请从 Microsoft Store 更新 App Installer。'},
+{id:'setup',category:'One-click Setup / 一键 Setup',title:'Full Setup / 完整基础配置',description:'Install common apps, create folders, and apply simple Windows settings. / 安装常用软件、创建文件夹并应用基础设置。',shell:'CMD',command:runPs('setup.ps1').replace("; & powershell", "; notepad setup.ps1; & powershell"),tags:['CMD','setup','winget','review first'],risk:'high',admin:false,presets:['all','dev'],favorite:true,updatedAt:'2026-05-07',details:'This downloads setup.ps1, opens it in Notepad for review, then runs it. / 该命令会下载 setup.ps1，先用记事本打开检查，然后运行。'},
+{id:'sharex',category:'Essential Apps / 必装软件',title:'Install ShareX / 安装 ShareX',description:'Screenshot, screen recording, and image workflow tool. / 截图、录屏和图片处理工具。',shell:'CMD',command:runPs('sharex.ps1'),tags:['CMD','winget','screenshot','school'],risk:'caution',admin:false,presets:['all','school'],favorite:true,updatedAt:'2026-05-07',details:'School computers may block installs. / 学校电脑可能限制安装。'},
+{id:'apps',category:'Essential Apps / 必装软件',title:'Install Common Apps / 安装常用软件',description:'Install ShareX, Chrome, VS Code, Git, 7-Zip, LocalSend, PowerToys, Everything, VLC. / 安装常用软件合集。',shell:'CMD',command:runPs('apps.ps1'),tags:['CMD','winget','apps'],risk:'caution',admin:false,presets:['all','dev'],favorite:true,updatedAt:'2026-05-07',details:'Runs multiple winget installs. / 会连续运行多个 winget 安装。'},
+{id:'vscode',category:'VS Code',title:'VS Code Setup / 配置 VS Code',description:'Install VS Code and useful extensions. / 安装 VS Code 和常用扩展。',shell:'CMD',command:runPs('vscode.ps1'),tags:['CMD','VS Code','extensions','dev'],risk:'safe',admin:false,presets:['all','dev'],favorite:true,updatedAt:'2026-05-07',details:'If code command is missing, open VS Code once and rerun. / 如果找不到 code 命令，先打开一次 VS Code 再重试。'},
+{id:'wallpaper',category:'Personalization / 个性化设置',title:'Set Wallpaper / 设置壁纸',description:'Set embedded Sequoia Sunrise wallpaper with Fill mode. / 使用仓库内置壁纸并设置为填充铺满。',shell:'CMD',command:runPs('wallpaper.ps1'),tags:['CMD','wallpaper','personal'],risk:'safe',admin:false,presets:['all','personal','school'],favorite:false,updatedAt:'2026-05-07',details:'Wallpaper image is stored in assets folder in your repo. / 壁纸图片已放在仓库 assets 文件夹中。'},
+{id:'folders',category:'Folders / 文件夹初始化',title:'Create Common Folders / 创建常用文件夹',description:'Create Projects, Setup, Screenshots, and Wallpapers folders. / 创建常用工作文件夹。',shell:'CMD',command:runPs('folders.ps1'),tags:['CMD','folders'],risk:'safe',admin:false,presets:['all','dev','personal'],favorite:false,updatedAt:'2026-05-07',details:'Uses New-Item -Force, safe if folders already exist. / 如果文件夹已存在也不会报错。'},
+{id:'install-node',category:'Development / 开发环境',title:'Install Node.js LTS / 安装 Node.js LTS',description:'Install Node.js LTS through winget. / 通过 winget 安装 Node.js 长期支持版。',shell:'CMD',command:'chcp 65001 >nul && cd /d "%USERPROFILE%\\Downloads" && winget install -e --id OpenJS.NodeJS.LTS --accept-package-agreements --accept-source-agreements',tags:['CMD','winget','node','dev'],risk:'safe',admin:false,presets:['all','dev'],favorite:false,updatedAt:'2026-05-07',details:'Restart terminal after installation. / 安装后建议重启终端。'},
+{id:'install-python',category:'Development / 开发环境',title:'Install Python / 安装 Python',description:'Install Python 3.12 through winget. / 通过 winget 安装 Python 3.12。',shell:'CMD',command:'chcp 65001 >nul && cd /d "%USERPROFILE%\\Downloads" && winget install -e --id Python.Python.3.12 --accept-package-agreements --accept-source-agreements',tags:['CMD','winget','python','dev'],risk:'safe',admin:false,presets:['all','dev'],favorite:false,updatedAt:'2026-05-07',details:'Restart terminal after installation. / 安装后建议重启终端。'},
+{id:'git-template',category:'Git Config / Git 配置',title:'Git Config Template / Git 配置模板',description:'Template only. Replace name and email before running. / 模板命令，运行前请替换姓名和邮箱。',shell:'CMD',command:'git config --global user.name "Your Name" && git config --global user.email "your-email@example.com" && git config --global init.defaultBranch main && git config --global core.autocrlf true',tags:['CMD','git','template','dev'],risk:'caution',admin:false,presets:['all','dev'],favorite:false,updatedAt:'2026-05-07',details:'Do not publish your private email if you do not want it public. / 如果不想公开私人邮箱，不要写死到公开网页。'}
+];
 
-  <div class="card">
-    <h2>Full Setup</h2>
-    <p>Download the full setup script, open it in Notepad for review, then run it. Works in CMD.</p>
-    <pre id="full">cd /d &quot;%USERPROFILE%\Downloads&quot; &amp;&amp; powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/setup.ps1' -OutFile 'setup.ps1'; notepad setup.ps1; &amp; powershell -NoProfile -ExecutionPolicy Bypass -File '.\setup.ps1'&quot;</pre>
-    <button onclick="copyCommand('full')">Copy command</button>
-  </div>
-
-  <div class="card">
-    <h2>Install Common Apps</h2>
-    <p>Install ShareX, Chrome, VS Code, LocalSend, and 7-Zip. Works in CMD.</p>
-    <pre id="apps">cd /d &quot;%USERPROFILE%\Downloads&quot; &amp;&amp; powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/apps.ps1' -OutFile 'apps.ps1'; &amp; powershell -NoProfile -ExecutionPolicy Bypass -File '.\apps.ps1'&quot;</pre>
-    <button onclick="copyCommand('apps')">Copy command</button>
-  </div>
-
-  <div class="card">
-    <h2>VS Code Setup</h2>
-    <p>Install VS Code and several basic extensions. Works in CMD.</p>
-    <pre id="vscode">cd /d &quot;%USERPROFILE%\Downloads&quot; &amp;&amp; powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/vscode.ps1' -OutFile 'vscode.ps1'; &amp; powershell -NoProfile -ExecutionPolicy Bypass -File '.\vscode.ps1'&quot;</pre>
-    <button onclick="copyCommand('vscode')">Copy command</button>
-  </div>
-
-
-  <div class="card">
-    <h2>Set Wallpaper</h2>
-    <p>Set the bundled macOS Sequoia Sunrise wallpaper from this GitHub repository as the Windows desktop background in Fill mode.</p>
-    <pre id="wallpaper">cd /d "%USERPROFILE%\Downloads" && powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/wallpaper.ps1' -OutFile 'wallpaper.ps1'; & powershell -NoProfile -ExecutionPolicy Bypass -File '.\wallpaper.ps1'"</pre>
-    <button onclick="copyCommand('wallpaper')">Copy command</button>
-  </div>
-
-  <script>
-    function copyCommand(id) {
-      const text = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Copied!");
-      });
-    }
-  </script>
+let activePreset = 'all';
+function riskLabel(r){return r==='safe'?'Safe / 安全':r==='caution'?'Caution / 注意':'High Risk / 高风险'}
+function fillCategories(){const cats=[...new Set(commands.map(c=>c.category))]; const sel=document.getElementById('cat'); cats.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o)});}
+function filtered(){const q=document.getElementById('q').value.toLowerCase(); const cat=document.getElementById('cat').value; const shell=document.getElementById('shell').value; const risk=document.getElementById('risk').value; return commands.filter(c=>{const hay=[c.title,c.description,c.command,c.category,...c.tags].join(' ').toLowerCase(); return (!q||hay.includes(q))&&(cat==='all'||c.category===cat)&&(shell==='all'||c.shell===shell)&&(risk==='all'||c.risk===risk)&&(activePreset==='all'||c.presets.includes(activePreset));});}
+function render(){const list=filtered(); const box=document.getElementById('cards'); if(!list.length){box.innerHTML='<div class="empty">No commands found / 没有找到命令</div>';return;} box.innerHTML=list.map(c=>`<article class="cmd-card"><div class="cmd-head"><div><div class="cmd-title">${c.title}</div><div class="desc">${c.description}</div></div><span class="pill ${'risk-'+c.risk}">${riskLabel(c.risk)}</span></div><div class="tags"><span class="tag">${c.category}</span><span class="tag">${c.shell}</span>${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div><pre id="cmd-${c.id}">${escapeHtml(c.command)}</pre><div class="row"><button class="btn" onclick="copyCommand('${c.id}', this)">Copy / 复制</button><span class="small">Admin / 管理员：${c.admin?'Yes / 是':'No / 否'} · Updated / 更新：${c.updatedAt}</span></div><details><summary>Details / 查看说明</summary><p>${c.details}</p></details></article>`).join('');}
+function escapeHtml(s){return s.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));}
+function copyText(text, btn, title){navigator.clipboard.writeText(text).then(()=>{const old=btn.textContent;btn.textContent='Copied / 已复制';btn.classList.add('ok');setTimeout(()=>{btn.textContent=old;btn.classList.remove('ok')},1400); addRecent(title||text.slice(0,40));}).catch(()=>alert('Copy failed. Please select manually. / 复制失败，请手动选择复制。'));}
+function copyCommand(id,btn){const c=commands.find(x=>x.id===id); copyText(c.command,btn,c.title)}
+function copyById(id,btn){copyText(document.getElementById(id).innerText,btn,'Full Setup / 完整配置')}
+function copyVisible(btn){const text=filtered().map(c=>c.command).join('\n'); copyText(text,btn,'Visible commands / 当前筛选命令')}
+function setPreset(p){activePreset=p;render();}
+function toggleTheme(){const b=document.body; b.dataset.theme=b.dataset.theme==='light'?'dark':'light'; localStorage.setItem('theme',b.dataset.theme)}
+function addRecent(t){let r=JSON.parse(localStorage.getItem('recentCommands')||'[]'); r=[t,...r.filter(x=>x!==t)].slice(0,5); localStorage.setItem('recentCommands',JSON.stringify(r)); renderRecent();}
+function renderRecent(){let r=JSON.parse(localStorage.getItem('recentCommands')||'[]'); document.getElementById('recent').innerHTML=r.length?r.map(x=>`<div class="recent-item">${escapeHtml(x)}</div>`).join(''):'<p class="small">No recent copies yet. / 暂无复制记录。</p>';}
+(function init(){document.body.dataset.theme=localStorage.getItem('theme')||'dark';fillCategories();renderRecent();render();})();
+</script>
 </body>
 </html>

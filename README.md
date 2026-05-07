@@ -1,38 +1,61 @@
-# Windows Setup
+# Windows Quick Setup / Windows 快速配置工具箱
 
-Personal Windows setup scripts and quick install commands.
+Personal Windows setup dashboard for quickly copying CMD / PowerShell commands on new, school, lab, or temporary Windows computers.
 
-## GitHub Pages
+个人 Windows 初始化命令工具箱网页。适合在学校电脑、实验室电脑、新电脑或临时 Windows 设备上快速复制命令，完成基础配置。
+
+## Website / 网站
 
 https://jimmy88-8.github.io/windows-setup/
 
-## Quick Install ShareX from CMD
+## Main Features / 主要功能
+
+- Bilingual Chinese / English interface
+- CMD-friendly commands with UTF-8 support: `chcp 65001`
+- Commands start in `%USERPROFILE%\Downloads` to reduce permission issues
+- Search, category filter, shell filter, risk filter
+- Presets: school, development, personalization
+- Copy feedback and recent copy history
+- Risk labels and command details
+- Embedded wallpaper asset
+
+## Quick Commands / 快速命令
+
+### Full Setup / 完整配置
 
 ```cmd
-cd /d "%USERPROFILE%\Downloads" && powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/sharex.ps1' -OutFile 'sharex.ps1'; & powershell -NoProfile -ExecutionPolicy Bypass -File '.\sharex.ps1'"
+chcp 65001 >nul && cd /d "%USERPROFILE%\Downloads" && powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/setup.ps1' -OutFile 'setup.ps1'; notepad setup.ps1; & powershell -NoProfile -ExecutionPolicy Bypass -File '.\setup.ps1'"
 ```
 
-## Full Setup from CMD
+### Install ShareX / 安装 ShareX
 
 ```cmd
-cd /d "%USERPROFILE%\Downloads" && powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/setup.ps1' -OutFile 'setup.ps1'; notepad setup.ps1; & powershell -NoProfile -ExecutionPolicy Bypass -File '.\setup.ps1'"
+chcp 65001 >nul && cd /d "%USERPROFILE%\Downloads" && powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/sharex.ps1' -OutFile 'sharex.ps1'; & powershell -NoProfile -ExecutionPolicy Bypass -File '.\sharex.ps1'"
 ```
 
+## Files / 文件结构
 
-## Set Wallpaper
-
-```cmd
-cd /d "%USERPROFILE%\Downloads" && powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/wallpaper.ps1' -OutFile 'wallpaper.ps1'; & powershell -NoProfile -ExecutionPolicy Bypass -File '.\wallpaper.ps1'"
+```text
+windows-setup/
+├─ README.md
+├─ setup.ps1
+├─ sharex.ps1
+├─ apps.ps1
+├─ vscode.ps1
+├─ wallpaper.ps1
+├─ folders.ps1
+├─ docs/
+│  └─ index.html
+└─ assets/
+   └─ 15-Sequoia-Sunrise.png
 ```
 
-## Apps Included
+## GitHub Pages / 部署
 
-- ShareX
-- Google Chrome
-- Visual Studio Code
-- LocalSend
-- 7-Zip
+Settings → Pages → Deploy from a branch → `main` → `/docs`
 
-## Notes
+## Safety / 安全提醒
 
-Do not store passwords, API keys, SSH keys, tokens, or private configuration files in this public repository.
+Do not publish passwords, tokens, SSH private keys, API keys, or private personal configuration in this public repository.
+
+不要在公开仓库中保存密码、Token、SSH 私钥、API Key 或私人配置。
