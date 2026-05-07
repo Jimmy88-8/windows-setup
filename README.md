@@ -1,4 +1,4 @@
-# Windows Quick Setup / Windows 快速配置工具箱
+﻿# Windows Quick Setup / Windows 快速配置工具箱
 
 Personal Windows setup dashboard for quickly copying CMD / PowerShell commands on new, school, lab, or temporary Windows computers.
 
@@ -59,3 +59,10 @@ Settings → Pages → Deploy from a branch → `main` → `/docs`
 Do not publish passwords, tokens, SSH private keys, API keys, or private personal configuration in this public repository.
 
 不要在公开仓库中保存密码、Token、SSH 私钥、API Key 或私人配置。
+
+
+## v0.5 UI Update
+
+- Commands are collapsed by default to reduce visual clutter.
+- Added Chinese / English language toggle.
+- English appears only when selected or necessary labels require it.
