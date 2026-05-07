@@ -66,7 +66,7 @@
 </head>
 <body>
   <h1>Windows Setup</h1>
-  <p class="subtitle">Quick commands for setting up a Windows computer.</p>
+  <p class="subtitle">Quick commands for setting up a Windows computer. These commands can be run directly in CMD or PowerShell.</p>
 
   <div class="warning">
     <strong>Safety note:</strong> Review scripts before running them. Do not put passwords, API keys, tokens, or private files in this public repository.
@@ -75,28 +75,28 @@
   <div class="card">
     <h2>Install ShareX</h2>
     <p>Download and run the ShareX installer script.</p>
-    <pre id="sharex">irm https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/sharex.ps1 -OutFile sharex.ps1; powershell -ExecutionPolicy Bypass -File .\sharex.ps1</pre>
+    <pre id="sharex">powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/sharex.ps1 -OutFile sharex.ps1; powershell -ExecutionPolicy Bypass -File .\sharex.ps1"</pre>
     <button onclick="copyCommand('sharex')">Copy command</button>
   </div>
 
   <div class="card">
     <h2>Full Setup</h2>
     <p>Download the full setup script, open it in Notepad for review, then run it.</p>
-    <pre id="full">irm https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/setup.ps1 -OutFile setup.ps1; notepad setup.ps1; powershell -ExecutionPolicy Bypass -File .\setup.ps1</pre>
+    <pre id="full">powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/setup.ps1 -OutFile setup.ps1; notepad setup.ps1; powershell -ExecutionPolicy Bypass -File .\setup.ps1"</pre>
     <button onclick="copyCommand('full')">Copy command</button>
   </div>
 
   <div class="card">
     <h2>Install Common Apps</h2>
     <p>Install ShareX, Chrome, VS Code, LocalSend, and 7-Zip.</p>
-    <pre id="apps">irm https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/apps.ps1 -OutFile apps.ps1; powershell -ExecutionPolicy Bypass -File .\apps.ps1</pre>
+    <pre id="apps">powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/apps.ps1 -OutFile apps.ps1; powershell -ExecutionPolicy Bypass -File .\apps.ps1"</pre>
     <button onclick="copyCommand('apps')">Copy command</button>
   </div>
 
   <div class="card">
     <h2>VS Code Setup</h2>
     <p>Install VS Code and several basic extensions.</p>
-    <pre id="vscode">irm https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/vscode.ps1 -OutFile vscode.ps1; powershell -ExecutionPolicy Bypass -File .\vscode.ps1</pre>
+    <pre id="vscode">powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/vscode.ps1 -OutFile vscode.ps1; powershell -ExecutionPolicy Bypass -File .\vscode.ps1"</pre>
     <button onclick="copyCommand('vscode')">Copy command</button>
   </div>
 

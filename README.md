@@ -5,13 +5,13 @@ Personal Windows setup scripts and quick install commands.
 ## Quick Install ShareX
 
 ```powershell
-irm https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/sharex.ps1 -OutFile sharex.ps1; powershell -ExecutionPolicy Bypass -File .\sharex.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/sharex.ps1 -OutFile sharex.ps1; powershell -ExecutionPolicy Bypass -File .\sharex.ps1"
 ```
 
 ## Full Setup
 
 ```powershell
-irm https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/setup.ps1 -OutFile setup.ps1; notepad setup.ps1; powershell -ExecutionPolicy Bypass -File .\setup.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/setup.ps1 -OutFile setup.ps1; notepad setup.ps1; powershell -ExecutionPolicy Bypass -File .\setup.ps1"
 ```
 
 ## Apps Included
