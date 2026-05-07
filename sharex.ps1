@@ -2,9 +2,11 @@
 
 Write-Host "Installing ShareX..." -ForegroundColor Green
 
+# Move to Downloads to avoid permission issues
+Set-Location -Path "$HOME\Downloads"
+
 if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
     Write-Host "winget is not installed or not available." -ForegroundColor Red
-    Write-Host "Install 'App Installer' from Microsoft Store first." -ForegroundColor Yellow
     exit 1
 }
 
