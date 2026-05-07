@@ -66,3 +66,11 @@ Do not publish passwords, tokens, SSH private keys, API keys, or private persona
 - Commands are collapsed by default to reduce visual clutter.
 - Added Chinese / English language toggle.
 - English appears only when selected or necessary labels require it.
+
+
+## v0.6 UI Update
+
+- 增强页面视觉层次和呼吸感。
+- 增加柔和渐变背景、玻璃拟态卡片、圆角和更大的间距。
+- 保持命令默认折叠，降低首屏信息密度。
+- 保留中文 / English 切换、深浅主题切换、搜索和筛选功能。
