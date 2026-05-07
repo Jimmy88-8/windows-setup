@@ -18,6 +18,13 @@ cd /d "%USERPROFILE%\Downloads" && powershell -NoProfile -ExecutionPolicy Bypass
 cd /d "%USERPROFILE%\Downloads" && powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/setup.ps1' -OutFile 'setup.ps1'; notepad setup.ps1; & powershell -NoProfile -ExecutionPolicy Bypass -File '.\setup.ps1'"
 ```
 
+
+## Set Wallpaper
+
+```cmd
+cd /d "%USERPROFILE%\Downloads" && powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/wallpaper.ps1' -OutFile 'wallpaper.ps1'; & powershell -NoProfile -ExecutionPolicy Bypass -File '.\wallpaper.ps1'"
+```
+
 ## Apps Included
 
 - ShareX

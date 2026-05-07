@@ -92,6 +92,14 @@
     <button onclick="copyCommand('vscode')">Copy command</button>
   </div>
 
+
+  <div class="card">
+    <h2>Set Wallpaper</h2>
+    <p>Set the bundled macOS Sequoia Sunrise wallpaper from this GitHub repository as the Windows desktop background in Fill mode.</p>
+    <pre id="wallpaper">cd /d "%USERPROFILE%\Downloads" && powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/jimmy88-8/windows-setup/main/wallpaper.ps1' -OutFile 'wallpaper.ps1'; & powershell -NoProfile -ExecutionPolicy Bypass -File '.\wallpaper.ps1'"</pre>
+    <button onclick="copyCommand('wallpaper')">Copy command</button>
+  </div>
+
   <script>
     function copyCommand(id) {
       const text = document.getElementById(id).innerText;
